@@ -1,0 +1,5 @@
+<A> <beta> <B> .
+<B> <beta> <C> .
+<C> <beta> <A> .
+<A> <beta> <D> .
+<B> <beta> <D> .
