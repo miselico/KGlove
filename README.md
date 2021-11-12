@@ -67,6 +67,16 @@ For compilation, we used Eclipse C++.
 The code has a dependency on several boost libraries.
 The easiest is to download them from https://www.boost.org/ , we used version 1.70, but later versions are very likely to work as well (or even better).
 Then, change the built settings in Eclipse C++; add the folder in which you extracted the boost header files to your include paths.
+Make sure to do this for both build configurations:
+![Including the boost headers for the Debug configuration](img/boost_debug.png "Inclding the headers in the debug configuration")
+![Including the boost headers for the Optimized configuration](img/boost_optimized.png "Inclding the headers in the optimized configuration")
+
+
+When compiling, make sure you have set the active run configuration to `Optimized`.
+![Open build menu where the setting is set to 'Optimized'](img/built-target-optimized.png "Setting the active run configuration to 'Optimized'")
+
+After compiling, you can copy the binary (location: `Optimized/KGlove`) to the machine where you want to run it.
+Alternatively, you can also choose to move the project, including the generated make files to the machine where you want to compile it. Make sure to use the make files in the 'Optimized' directory.
 
 ### Running
 
