@@ -401,8 +401,8 @@ typedef struct cooccur_rec {
 } CREC;
 
 void writeCrec(CREC *crec, FILE *toFile) {
-	int word1 = boost::endian::native_to_big(crec->word1);
-	int word2 = boost::endian::native_to_big(crec->word2);
+	int word1 = boost::endian::native_to_little(crec->word1);
+	int word2 = boost::endian::native_to_little(crec->word2);
 
 	fwrite(&word1, sizeof(int), 1, toFile);
 	fwrite(&word2, sizeof(int), 1, toFile);
@@ -413,7 +413,7 @@ void writeCrec(CREC *crec, FILE *toFile) {
 	// from https://stackoverflow.com/a/20452215
 	const int __one__ = 1;
 	const bool isCpuLittleEndian = 1 == *(char*) (&__one__); // CPU endianness
-	const bool isFileLittleEndian = false;  // output endianness
+	const bool isFileLittleEndian = true;  // output endianness
 
 	if (isCpuLittleEndian ^ isFileLittleEndian) {
 		char *pDouble = (char*) (double*) (&float_val);
