@@ -63,6 +63,8 @@ This would then result in multiple co-occurrence files.
 
 ### compilation
 
+:warning: Compiling this code on Windows has resulted in binaries which produce non-compatible serializations. Make sure to compile the code on linux. 
+
 For compilation, we used Eclipse C++.
 The code has a dependency on several boost libraries.
 The easiest is to download them from https://www.boost.org/ , we used version 1.70, but later versions are very likely to work as well (or even better).
