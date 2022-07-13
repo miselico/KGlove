@@ -31,9 +31,12 @@ def load(cooccurrence_file_content: BinaryIO) -> scipy.sparse.coo_matrix:
     result = scipy.sparse.coo_matrix((data, (row, column)), dtype=np.float64)
     return result
 
-
 if __name__ == "__main__":
+    import sys
     p = pathlib.Path("output/cooccurrence_file.bin")
+    if len(sys.argv) > 1:
+        p = pathlib.Path(sys.argv[1])
+
     with open(p, 'rb') as file:
         m = load(file)
     print(m.tocsc())
