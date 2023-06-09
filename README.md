@@ -61,13 +61,52 @@ This
 Most of these parameters are lists. Specifying multiple values will cause all permutations of parameter values to be executed, one at a time.
 This would then result in multiple co-occurrence files.
 
-### compilation
+### Compilation
+
+#### On a server ####
+
+
+Instructions for compiling from the command line
+
+##### install boost in your home directory
+```bash
+cd ~
+wget https://boostorg.jfrog.io/artifactory/main/release/1.82.0/source/boost_1_82_0.tar.bz2
+bunzip2 boost_1_82_0.tar.bz2 
+tar -xvf boost_1_82_0.tar
+```
+##### clone KGloVe
+```bash
+git clone https://github.com/miselico/KGlove 
+```
+##### prepare for compilation
+```bash
+cd KGloVe
+mkdir Executable
+cd Executable
+mkdir -p src/graph
+```
+##### compile
+```bash
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/graph/LabeledGraph.d" -MT"src/graph/LabeledGraph.o" -o "src/graph/LabeledGraph.o" "../src/graph/LabeledGraph.cpp" 
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/BCA.d" -MT"src/BCA.o" -o "src/BCA.o" "../src/BCA.cpp"
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/GraphWeigher.d" -MT"src/GraphWeigher.o" -o "src/GraphWeigher.o" "../src/GraphWeigher.cpp"
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/KGloVe.d" -MT"src/KGloVe.o" -o "src/KGloVe.o" "../src/KGloVe.cpp"
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/Main.d" -MT"src/Main.o" -o "src/Main.o" "../src/Main.cpp"
+g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/nTripleParser.d" -MT"src/nTripleParser.o" -o "src/nTripleParser.o" "../src/nTripleParser.cpp"
+```
+##### Invoking: GCC C++ Linker
+```bash
+g++ -pthread -o "RDFConverter"  ./src/graph/LabeledGraph.o  ./src/BCA.o ./src/GraphWeigher.o ./src/KGloVe.o ./src/Main.o ./src/nTripleParser.o
+```
+#### To develop the code further ####
+
 
 :warning: Compiling this code on Windows has resulted in binaries which produce non-compatible serializations. Make sure to compile the code on linux. 
 
 For compilation, we used Eclipse C++.
 The code has a dependency on several boost libraries.
-The easiest is to download them from https://www.boost.org/ , we used version 1.70, but later versions are very likely to work as well (or even better).
+The easiest is to download them from https://www.boost.org/ , we used version 1.70 till 1.82 succesfulle, but later versions are very likely to work as well (or even better).
 Then, change the built settings in Eclipse C++; add the folder in which you extracted the boost header files to your include paths.
 Make sure to do this for both build configurations:
 ![Including the boost headers for the Debug configuration](img/boost_debug.png "Inclding the headers in the debug configuration")
