@@ -88,12 +88,12 @@ mkdir -p src/graph
 ```
 ##### compile
 ```bash
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/graph/LabeledGraph.d" -MT"src/graph/LabeledGraph.o" -o "src/graph/LabeledGraph.o" "../src/graph/LabeledGraph.cpp" 
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/BCA.d" -MT"src/BCA.o" -o "src/BCA.o" "../src/BCA.cpp"
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/GraphWeigher.d" -MT"src/GraphWeigher.o" -o "src/GraphWeigher.o" "../src/GraphWeigher.cpp"
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/KGloVe.d" -MT"src/KGloVe.o" -o "src/KGloVe.o" "../src/KGloVe.cpp"
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/Main.d" -MT"src/Main.o" -o "src/Main.o" "../src/Main.cpp"
-g++ -std=c++1y -I~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/nTripleParser.d" -MT"src/nTripleParser.o" -o "src/nTripleParser.o" "../src/nTripleParser.cpp"
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/graph/LabeledGraph.d" -MT"src/graph/LabeledGraph.o" -o "src/graph/LabeledGraph.o" "../src/graph/LabeledGraph.cpp" 
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/BCA.d" -MT"src/BCA.o" -o "src/BCA.o" "../src/BCA.cpp"
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/GraphWeigher.d" -MT"src/GraphWeigher.o" -o "src/GraphWeigher.o" "../src/GraphWeigher.cpp"
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/KGloVe.d" -MT"src/KGloVe.o" -o "src/KGloVe.o" "../src/KGloVe.cpp"
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/Main.d" -MT"src/Main.o" -o "src/Main.o" "../src/Main.cpp"
+g++ -std=c++1y -I ~/boost_1_82_0 -O3 -DNDEBUG -pedantic -Wall -Wextra -c -fmessage-length=0 -MMD -MP -MF"src/nTripleParser.d" -MT"src/nTripleParser.o" -o "src/nTripleParser.o" "../src/nTripleParser.cpp"
 ```
 ##### Invoking: GCC C++ Linker
 ```bash
